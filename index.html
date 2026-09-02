@@ -1,0 +1,123 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<title>Hernan — Travel Agent</title>
+	<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+	<header class="site-header">
+		<div class="container header-inner">
+			<a class="brand" href="#">
+				<svg class="logo" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/></svg>
+				<span class="brand-name">Hernan</span>
+			</a>
+			<nav class="nav">
+				<a href="#about">About</a>
+				<a href="#services">Services</a>
+				<a href="#testimonials">Testimonials</a>
+				<a href="#contact" class="cta">Contact</a>
+			</nav>
+		</div>
+	</header>
+
+	<main>
+		<section class="hero">
+			<div class="container hero-grid">
+				<div class="hero-content">
+					<h1>Hi, I’m Hernan — your travel guide</h1>
+					<p>I design effortless, unforgettable trips for busy travelers. From bespoke itineraries to last-minute help on the road — I handle the details so you can explore.</p>
+					<p class="hero-actions">
+						<a href="#contact" class="btn btn-primary">Plan a Trip</a>
+						<a href="#services" class="btn btn-ghost">See Services</a>
+					</p>
+				</div>
+				<div class="hero-card">
+					<div class="profile-photo" aria-hidden="true">
+						<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+							<defs>
+								<linearGradient id="g" x1="0" x2="1">
+									<stop offset="0" stop-color="#ff7a7a"/>
+									<stop offset="1" stop-color="#7a9bff"/>
+								</linearGradient>
+							</defs>
+							<rect width="200" height="200" rx="18" fill="url(#g)"/>
+							<g fill="#fff" transform="translate(50,40)">
+								<circle cx="50" cy="30" r="22"/>
+								<rect x="6" y="72" width="88" height="10" rx="5"/>
+								<rect x="6" y="90" width="68" height="8" rx="4"/>
+							</g>
+						</svg>
+					</div>
+					<div class="card-body">
+						<h3>Hernan</h3>
+						<p class="muted">Travel Agent & Itinerary Designer</p>
+						<p>I craft personalized trips across the Americas, Europe and beyond — focusing on immersive experiences and smooth logistics.</p>
+						<p class="small"><strong>Quick:</strong> Free consult by email within 24 hours.</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section id="about" class="container about">
+			<h2>About me</h2>
+			<p>I’m Hernan, a travel agent passionate about creating journeys that feel effortless and meaningful. I combine local knowledge, vetted partners, and careful planning so you can focus on the experience.</p>
+			<ul class="about-list">
+				<li>10+ years arranging flights, hotels, and unique local experiences</li>
+				<li>Specialty: family trips, romantic getaways, and cultural tours</li>
+				<li>Languages: Spanish & English</li>
+			</ul>
+		</section>
+
+		<section id="services" class="container services">
+			<h2>Services</h2>
+			<div class="cards">
+				<article class="service-card">
+					<h3>Full Trip Planning</h3>
+					<p>End-to-end planning: flights, accommodation, transfers, and daily itineraries tailored to your interests.</p>
+				</article>
+				<article class="service-card">
+					<h3>Last-minute Help</h3>
+					<p>Emergency changes, rebooking, or quick recommendations while you’re already traveling.</p>
+				</article>
+				<article class="service-card">
+					<h3>Group & Family Travel</h3>
+					<p>Coordinated logistics and curated activities that work for groups of all sizes.</p>
+				</article>
+			</div>
+		</section>
+
+		<section id="testimonials" class="container testimonials">
+			<h2>What clients say</h2>
+			<blockquote class="testimonial">
+				“Hernan planned the perfect family trip — every detail was handled and our kids loved the experiences.” — Ana P.
+			</blockquote>
+			<blockquote class="testimonial">
+				“Fast, friendly, and resourceful. Helped when a flight was canceled and kept our holiday on track.” — Mark R.
+			</blockquote>
+		</section>
+
+		<section id="contact" class="container contact">
+			<h2>Contact</h2>
+			<p>Ready to start planning? Email me at <a href="mailto:hernan@example.com">hernan@example.com</a> or use the contact button below.</p>
+			<p><a href="mailto:hernan@example.com" class="btn btn-primary">Email Hernan</a></p>
+		</section>
+	</main>
+
+	<footer class="site-footer">
+		<div class="container footer-inner">
+			<p>© <span id="year"></span> Hernan — Travel Agent</p>
+			<p class="muted">Based in Latin America · Personalized trips worldwide</p>
+		</div>
+	</footer>
+
+	<script>
+		// tiny script to set year without affecting site structure; safe for static HTML
+		(function(){document.getElementById('year').textContent = new Date().getFullYear();})();
+	</script>
+</body>
+</html>
