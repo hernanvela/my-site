@@ -9,15 +9,13 @@
 	const content = weatherCard.querySelector('.weather-content');
 	const errorEl = el('weather-error');
 	const refreshBtn = el('weather-refresh');
-	const manualWrap = el('weather-manual');
 	const placeInput = el('weather-place');
 	const searchBtn = el('weather-search');
 
 	function setLoading(show){ loading.style.display = show ? 'block' : 'none'; }
 	function setContent(show){ content.style.display = show ? 'block' : 'none'; }
-	function showError(msg){ errorEl.textContent = msg; errorEl.style.display = 'block'; }
 	function clearError(){ errorEl.textContent=''; errorEl.style.display='none'; }
-	function showManualInput(show){ manualWrap.style.display = show ? 'flex' : 'none'; }
+	function hideWeather(){ weatherCard.style.display = 'none'; }
 
 	function weatherCodeToEmoji(code){
 		if(code === 0) return {emoji:'☀️',desc:'Clear'};
@@ -74,20 +72,19 @@
 			const loc = await reverseGeocode(lat, lon);
 			el('weather-location').textContent = loc ? loc : `Lat ${lat.toFixed(2)}, Lon ${lon.toFixed(2)}`;
 			setLoading(false); setContent(true);
-		}catch(err){ setLoading(false); showError(err.message || 'Unable to load weather'); }
+		}catch(err){ hideWeather(); }
 	}
 
 	function tryGeolocationAndFetch(){
-		if(!navigator.geolocation){ showError('Geolocation not available'); return; }
+		if(!navigator.geolocation){
+			hideWeather();
+			return;
+		}
 		setLoading(true); clearError(); setContent(false);
 		navigator.geolocation.getCurrentPosition(pos=>{
 			const lat = pos.coords.latitude; const lon = pos.coords.longitude;
 			updateWeatherAt(lat, lon);
-		}, err => {
-			setLoading(false);
-			const msg = err && err.message ? err.message : 'Location access denied. Allow location to see local weather.';
-			showError(msg);
-		}, {maximumAge:600000, timeout:8000});
+		}, () => { hideWeather(); }, {maximumAge:600000, timeout:8000});
 	}
 
 	refreshBtn.addEventListener('click', ()=>{ tryGeolocationAndFetch(); });
@@ -97,7 +94,7 @@
 		try{ clearError(); setLoading(true); setContent(false);
 			const p = await geocodePlace(q);
 			if(p){ await updateWeatherAt(p.lat, p.lon); el('weather-location').textContent = p.name; }
-		}catch(err){ showError(err.message || 'Place lookup failed'); }
+		}catch(err){ hideWeather(); }
 		finally{ setLoading(false); }
 	});
 
