@@ -65,3 +65,18 @@ body{
 /* small touches */
 h2{margin-top:0}
 blockquote.testimonial{font-style:italic}
+
+.weather-card{background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);border-radius:12px;padding:12px;margin-top:12px;color:inherit}
+.weather-main{display:flex;gap:12px;align-items:center}
+.weather-emoji{font-size:34px}
+.weather-temp{font-size:20px;font-weight:700}
+.weather-desc{font-size:13px}
+.weather-meta{font-size:13px;color:var(--muted);margin-top:8px}
+.weather-input{display:flex;gap:8px;margin-top:10px}
+.weather-input input{flex:1;padding:8px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit}
+.weather-input button{padding:8px 10px;border-radius:8px}
+.weather-loading{color:var(--muted)}
+.weather-error{color:var(--accent1);margin-top:8px}
+.weather-actions{margin-top:10px}
+.is-hidden{display:none}
+@media (max-width:900px){.weather-main{justify-content:flex-start}}
